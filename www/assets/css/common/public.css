@@ -1,0 +1,623 @@
+@charset "UTF-8";
+
+:root {
+    --mainColor: #a40000;
+    --textColor: #2e2e2e;
+    --bgColor: #000;
+    --originalScreenHeight: 100vh;
+    --screenHeight: 100vh;
+    --headerHeight: 50px;
+    --textAlign: justify;
+}
+
+html[lang="en-US"]:root {
+    --textAlign: left;
+}
+
+
+/*===========================================
+ * Reset
+ *===========================================*/
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*:not(svg):not(text):not(tspan) {
+    letter-spacing: .05em;
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit
+}
+
+html,
+body {
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'NotoSansTC', 'Microsoft JhengHei', 'PingFang', sans-serif;
+    overflow: hidden;
+}
+
+/****卷軸樣式****/
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+    background: #ddd;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+    background: var(--mainColor);
+}
+
+/***元素樣式****/
+ul,
+ol {
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+b,
+strong {
+    font-weight: 700;
+    letter-spacing: inherit;
+}
+
+i,
+em {
+    font-style: italic;
+    letter-spacing: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1;
+}
+
+img.c-img-load {
+    background: url(../../images/common/ajax-loader.gif) center/25px 25px no-repeat;
+}
+
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: none;
+}
+
+label {
+    -webkit-tap-highlight-color: transparent;
+}
+
+fieldset {
+    border: none;
+}
+
+iframe {
+    width: 100%;
+    border: none;
+}
+
+select:focus,
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+select,
+input,
+textarea {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select {
+    padding: 5px 65px 5px 15px;
+    border: 1px solid #d7d7d7;
+    background: url(../../images/common/icon_arrow_bottom.svg) right 20px/10px auto center no-repeat;
+}
+
+select,
+input {
+    height: 60px;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-o-clear {
+    display: none;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+input[type="checkbox"]:checked {
+    background: url(../../images/common/icon_check_white.svg) center no-repeat var(--mainColor);
+    background-size: 60% auto;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    background: radial-gradient(ellipse at center, #fff calc(40% - .5px), var(--mainColor) calc(40% + .5px)) var(--mainColor);
+    background-size: 100% 100%;
+}
+
+/**去除自動填充樣式**/
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+    box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: var(--textColor);
+}
+
+textarea {
+    min-height: 250px;
+    resize: none;
+}
+
+
+/*===========================================
+ * 功能層css
+ *===========================================*/
+
+/****循環動畫節流****/
+[data-animated-infinite="1"],
+[data-animated-infinite="true"],
+[data-animated-infinite="1"]::before,
+[data-animated-infinite="true"]::before,
+[data-animated-infinite="1"]::after,
+[data-animated-infinite="true"]::after {
+    animation-play-state: paused !important;
+}
+
+[data-animated-infinite="1"].play,
+[data-animated-infinite="true"].play,
+[data-animated-infinite="1"].play::before,
+[data-animated-infinite="true"].play::before,
+[data-animated-infinite="1"].play::after,
+[data-animated-infinite="true"].play::after {
+    animation-play-state: running !important;
+}
+
+/****wow****/
+.wow {
+    opacity: 0;
+    animation: 1s .4s ease-in-out forwards;
+    visibility: hidden;
+}
+
+
+/*===========================================
+ * 通用屬性
+ *===========================================*/
+
+/****顏色****/
+.red {
+    color: red;
+}
+
+/****display****/
+.c-inlineBlock {
+    display: inline-block;
+}
+
+/*===========================================
+ * 共用列表
+ *===========================================*/
+.c-ol,
+.c-ul {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--textColor);
+}
+
+.c-ol {
+    counter-reset: number;
+}
+
+.c-ol>li,
+.c-ul>li {
+    display: block;
+    width: 100%;
+}
+
+.c-ol>li a,
+.c-ul>li a {
+    transition: opacity .4s ease-in-out;
+}
+
+.c-ol>li a:hover,
+.c-ul>li a:hover {
+    opacity: .7;
+}
+
+.c-ol>li {
+    counter-increment: number;
+}
+
+.c-ol>li::before {
+    content: counter(number, decimal)'.';
+}
+
+.c-ul>li {
+    padding: 0 0 0 calc(1em + 5px);
+}
+
+.c-ul>li::before {
+    content: '';
+    position: absolute;
+    top: calc(.9em - 1.5px);
+    left: calc(.5em - 1.5px);
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--textColor);
+    overflow: hidden;
+}
+
+
+/*===========================================
+ * 共用choose容器
+ *===========================================*/
+.c-chooseBox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.c-choose {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-items: flex-start;
+    justify-content: flex-start;
+    width: auto;
+    max-width: 100%;
+    margin: 0 10px 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--textColor);
+    cursor: pointer;
+}
+
+.c-choose.hide {
+    display: none;
+}
+
+.c-choose:last-child {
+    margin: 0 0 10px 0;
+}
+
+.c-choose input[type="checkbox"],
+.c-choose input[type="radio"] {
+    top: calc(.75em - 10px);
+    margin: 0 10px 0 0;
+}
+
+.c-choose__text {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    flex: 0 1 auto;
+}
+
+/****展開收合容器****/
+.c-slide {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .3s ease-in-out;
+    overflow: hidden;
+}
+
+.c-slide__inner {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/*===========================================
+ * 共用零件
+ *===========================================*/
+/****錨點****/
+.c-anchor {
+    position: absolute;
+    top: calc(var(--headerHeight) - 30px);
+    left: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    border: none;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/****切換chechbox****/
+.c-toggleBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    max-width: 0;
+    max-height: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+/****youtube容器****/
+.c-youtube {
+    display: block;
+    width: 100%;
+    padding: 56.25% 0 0 0;
+}
+
+.c-youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/****recaptcha****/
+.c-recaptcha {
+    display: block;
+    width: 304px;
+    overflow: hidden;
+    flex: 0 0 auto;
+}
+
+/****日期****/
+.c-date {
+    display: block;
+    width: 100%;
+}
+
+/****標籤****/
+.c-tag {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 0 -10px 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+}
+
+.c-tag__item {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    margin: 0 10px 10px 0;
+}
+
+.c-tag__item:last-child {
+    margin: 0 0 10px 0;
+}
+
+/****查無資料****/
+.c-nodata {
+    display: none;
+    width: 100%;
+    padding: 100px 0;
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--titleColor);
+    font-weight: 700;
+    text-align: center;
+}
+
+.c-nodata.noList,
+.c-nodata:first-child:last-child {
+    display: block;
+}
+
+/****共用banner****/
+.c-banner {
+    display: block;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.c-banner__inner {
+    display: block;
+    width: calc(100% - 120px);
+    margin: 0 auto;
+}
+
+/**背景**/
+.c-banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.c-banner-bg img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
+/**文案**/
+.c-banner-content {
+    display: block;
+    width: 100%;
+}
+
+.c-banner-content__title {
+    display: block;
+    width: 100%;
+}
+
+.c-banner-content__sub {
+    display: block;
+    width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    :root {
+        --headerHeight: 80px;
+    }
+
+    /*===========================================
+     * 共用零件
+     *===========================================*/
+    /****共用banner****/
+
+}
+
+@media screen and (max-width: 767px) {
+
+    /*===========================================
+     * 共用零件
+     *===========================================*/
+    /****查無資料****/
+    .c-nodata {
+        padding: 80px 0;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    :root {
+        --headerHeight: 60px;
+    }
+
+    /*===========================================
+     * 共用零件
+     *===========================================*/
+    /****共用banner****/
+}
+
+
+/****是否支援動態螢幕高****/
+@supports (height: 100dvh) {
+    :root {
+        --screenHeight: 100dvh
+    }
+}
+
+/****非觸控螢幕****/
+@media (any-hover: hover) {}
+
+/****觸控螢幕****/
+@media (any-hover: none) {}
+
+/****IOS樣式****/
+@supports (-webkit-touch-callout: none) {
+    input::placeholder {
+        line-height: 2;
+    }
+}
+
+/****firefox樣式****/
+@-moz-document url-prefix() {
+
+    html,
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--mainColor) #ddd;
+    }
+
+    textarea {
+        scrollbar-width: thin;
+        scrollbar-color: var(--mainColor) #ddd;
+    }
+}
