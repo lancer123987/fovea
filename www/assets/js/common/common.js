@@ -1,4 +1,4 @@
-jQuery(function() {
+jQuery(function () {
     /* Passive event listeners */
     (() => {
         const passiveEvents = ['touchstart', 'touchmove', 'wheel', 'mousewheel'];
@@ -29,10 +29,12 @@ jQuery(function() {
     /* header 滾動樣式偵測 */
     headerScroll();
 
-
     observeScroll(() => {
         /* header 滾動樣式偵測 */
         headerScroll();
+
+        /* 錨點對應位置樣式 */
+        anchorPosition();
     });
 
 
@@ -67,6 +69,15 @@ jQuery(function() {
     });
 
 
+    /* 錨點連結 */
+    jQuery('.j-anchor-bt').on('click', function (e) {
+        e.preventDefault();
+        jQuery('#mainmenuCheck').prop('checked', false);
+        let target = jQuery(this).attr('href');
+        smoothScrollTo(jQuery(`${target}`).offset().top);
+    });
+
+
     /* 複製功能 */
     initCopyAction();
 
@@ -84,9 +95,9 @@ jQuery(function() {
         let link = location.href;
         if (navigator.share) {
             navigator.share({
-                    title: title,
-                    url: link,
-                }).then(() => devWarn('Successful share'))
+                title: title,
+                url: link,
+            }).then(() => devWarn('Successful share'))
                 .catch((error) => devWarn('Error sharing', error));
         }
     });
@@ -156,7 +167,7 @@ jQuery(function() {
                 case iframeSrc.startsWith('https://www.instagram.com'):
                     break;
 
-                    /* Youtube */
+                /* Youtube */
                 case iframeSrc.startsWith('https://www.youtube.com'):
                     let iframeWNum = iframeW || '100%';
                     $iframe.after('<div class="c-edit__youtube"></div>');
@@ -164,7 +175,7 @@ jQuery(function() {
                     $iframe.remove();
                     break;
 
-                    /* 預設處理 */
+                /* 預設處理 */
                 default:
                     $iframe.after(`<div class="c-edit__iframe" style="padding: min(${iframeH}px, ${iframeH / iframeW * 100}%) 0 0 0;max-width:${iframeW}px;max-height:${iframeH}px;"></div>`);
                     $iframe.next('.c-edit__iframe').append($iframe.clone());
@@ -180,8 +191,8 @@ jQuery(function() {
 
     /****resize事件****/
     ResizeHandler.init(() => {
-        /* 頁碼上限處理 */
-        pageMax();
+        /* 錨點對應位置樣式 */
+        anchorPosition();
     });
 });
 
@@ -363,6 +374,28 @@ function fileUploadDelStyle($target) {
     $file.find('.j-file-input').val('');
     $file.removeClass('hasfile');
     $file.find('.j-file-item').removeAttr('data-file');
+}
+
+
+/**
+ * 錨點對應位置樣式
+ *
+ * @access    public
+ *
+ * @return    {void}
+ */
+function anchorPosition() {
+    let target = null,
+        minDistance = Infinity;
+
+    document.querySelectorAll('.j-anchor').forEach(el => {
+        let distance = Math.abs(el.getBoundingClientRect().top);
+        if (distance >= minDistance) return;
+        minDistance = distance;
+        target = el.id;
+    });
+
+    jQuery('.j-anchor-bt').removeClass('active').filter(`[href="#${target}"]`).addClass('active');
 }
 
 

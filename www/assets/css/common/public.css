@@ -2,7 +2,7 @@
 
 :root {
     --mainColor: #000;
-    --titleColor:#202020;
+    --titleColor: #202020;
     --textColor: #2e2e2e;
     --bgColor: #000;
     --originalScreenHeight: 100vh;
@@ -411,6 +411,10 @@ textarea {
     visibility: hidden;
 }
 
+#top {
+    top: 0;
+}
+
 /****切換chechbox****/
 .c-toggleBox {
     position: fixed;
@@ -553,10 +557,6 @@ textarea {
 }
 
 @media screen and (max-width: 991px) {
-    :root {
-        --headerHeight: 80px;
-    }
-
     /*===========================================
      * 共用零件
      *===========================================*/
@@ -577,10 +577,6 @@ textarea {
 }
 
 @media screen and (max-width: 575px) {
-    :root {
-        --headerHeight: 60px;
-    }
-
     /*===========================================
      * 共用零件
      *===========================================*/

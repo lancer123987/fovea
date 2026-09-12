@@ -49,7 +49,6 @@ header.hide {
     display: block;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .7);
     opacity: 0;
     pointer-events: none;
     transition: opacity .4s ease-in-out;
@@ -79,6 +78,49 @@ header.hide {
     flex: 0 0 auto;
 }
 
+/****主選單容器****/
+.mainMenuBox {
+    display: block;
+    width: calc(50% - 20px - 50px);
+    transition: transform .4s ease-in-out;
+    overflow: hidden;
+    flex: 0 1 auto;
+}
+
+.mainMenuClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: none;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.mainMenuClose::before,
+.mainMenuClose::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - .5px);
+    left: -25%;
+    display: block;
+    width: 150%;
+    height: 1px;
+    background: #fff;
+    transform-origin: center;
+    pointer-events: none;
+}
+
+.mainMenuClose::before {
+    transform: rotate(45deg);
+}
+
+.mainMenuClose::after {
+    transform: rotate(-45deg);
+}
+
 /****主選單****/
 .mainMenu {
     display: flex;
@@ -86,15 +128,12 @@ header.hide {
     align-content: center;
     justify-items: flex-end;
     justify-content: flex-end;
-    width: calc(50% - 20px - 50px);
+    width: 100%;
     font-size: 13px;
     line-height: 1;
     color: var(--titleColor);
     font-weight: 500;
     overscroll-behavior: none;
-    transition: transform .4s ease-in-out;
-    overflow: hidden;
-    flex: 0 1 auto;
 }
 
 .mainMenu::-webkit-scrollbar {
@@ -110,18 +149,23 @@ header.hide {
     display: block;
     width: auto;
     max-width: 100%;
-    margin: 0 0 0 40px;
+    margin: 0 40px 0 0;
     text-align: center;
     flex: 0 0 auto;
 }
 
-.mainMenu__item:first-child {
+.mainMenu__item.pc-hie {
+    display: none;
+}
+
+.mainMenu__item:last-child {
     margin: 0;
 }
 
 .mainMenu__item__link {
     display: block;
     width: 100%;
+    transition: opacity .4s ease-in-out;
 }
 
 .mainMenu__item__link .en,
@@ -154,6 +198,10 @@ header.hide {
 }
 
 /****主選單展開樣式****/
+#mainmenuCheck:checked {
+    background: none;
+}
+
 #mainmenuCheck:checked~.mainMenuBg {
     opacity: 1;
     pointer-events: all;
@@ -165,53 +213,148 @@ header.hide {
 /****向下滾動樣式****/
 header.active {}
 
+@media screen and (max-width: 1300px) {
+    .mainMenu__item {
+        margin: 0 20px 0 0;
+    }
+}
+
 @media screen and (max-width: 991px) {
     .navbar {
         padding: 0 10px 0 0;
     }
 
-/****英文標題****/
-.navbar__en {
-    width: calc(50% - 50px - 50px);
-}
+    /****英文標題****/
+    .navbar__en {
+        width: calc(50% - 50px - 50px - 15px);
+        margin: 0 0 0 15px;
+        text-align: var(--textAlign);
+    }
 
-/****主選單****/
-.mainMenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-display: block;
-    align-items: flex-start;
-    align-content: flex-start;
-    justify-items:  flex-start;
-    justify-content:  flex-start;
-    width: 100%;
-    font-size: 30px;
-overflow-y: auto;
-}
+    /****主選單容器****/
+    .mainMenuBox {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100vh;
+        max-width: 520px;
+        padding: 0 15px;
+        background: var(--mainColor);
+        overflow: hidden;
+        z-index: 200;
+        flex: 0 1 auto;
+    }
 
-.mainMenu__item {
-    width: 100%;
-    margin: 0 0 0 40px;
-    text-align: var(--textAlign);
-}
+    .mainMenuClose {
+        display: block;
+    }
 
-.mainMenu__item__link .en{
-    display: none;
-}
+    /****主選單****/
+    .mainMenu {
+        flex-direction: column;
+        align-items: flex-end;
+        align-content: flex-end;
+        justify-items: flex-start;
+        justify-content: flex-start;
+        padding: 0 0 80px 0;
+        font-size: 30px;
+        color: #fff;
+        font-weight: 300;
+        overflow-y: auto;
+    }
 
-.mainMenu__item__link .zh {
-    opacity: 1;
-}
+    .mainMenu::before {
+        content: '';
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 80px;
+        background: linear-gradient(to bottom, #000 50%, #0000 100%);
+        flex: 0 0 auto;
+        z-index: 10;
+    }
+
+    .mainMenu__item {
+        margin: 0 0 30px 0;
+        text-align: var(--textAlign);
+    }
+
+    .mainMenu__item.pc-hie {
+        display: block;
+    }
+
+    .mainMenu__item__link {
+        padding: 0 0 0 25px;
+    }
+
+    .mainMenu__item__link::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 4px);
+        left: 0;
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity .4s ease-in-out;
+        overflow: hidden;
+    }
+
+    .mainMenu__item__link.active::before {
+        opacity: 1;
+    }
+
+    .mainMenu__item__link .en {
+        display: none;
+    }
+
+    .mainMenu__item__link .zh {
+        position: relative;
+        opacity: 1;
+    }
+
     /****主選單切換鈕****/
     .navbt {
         display: block;
+        margin: 0 0 0 calc(50% - 50px - 50px - 10px);
+    }
+
+    /****主選單展開樣式****/
+    #mainmenuCheck:checked~.mainMenuBox {
+        transform: translateX(-100%);
     }
 }
 
 @media screen and (max-width: 767px) {
+
+    /****logo****/
+    .logo {
+        margin: 0 calc(50% - 30px - 50px) 0 0;
+    }
+
+    /****中文標題****/
     .navbar__en {
         display: none;
+    }
+
+    /****主選單切換鈕****/
+    .navbt {
+        margin: 0 0 0 calc(50% - 50px - 50px - 10px);
     }
 }
 
@@ -220,14 +363,25 @@ overflow-y: auto;
         padding: 0;
     }
 
+    /****主選單****/
+    .mainMenu {
+        font-size: 25px;
+    }
+
+    .mainMenu__item {
+        margin: 0 0 25px 0;
+    }
+
     /****主選單切換鈕****/
     .navbt {
         width: 30px;
+        margin: 0 0 0 calc(50% - 30px - 50px);
     }
 }
 
 /****非觸控螢幕****/
 @media (any-hover: hover) {
+
     .mainMenu__item__link:hover .en {
         opacity: 0;
     }
@@ -236,6 +390,11 @@ overflow-y: auto;
         opacity: 1;
     }
 
+    @media screen and (max-width: 991px) {
+        .mainMenu__item__link:hover {
+            opacity: .7;
+        }
+    }
 }
 
 /****觸控螢幕****/
