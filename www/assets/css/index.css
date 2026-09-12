@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+    overflow: visible;
+}
+
 /*===========================================
  * banner
  *===========================================*/
@@ -23,10 +27,44 @@
 /*===========================================
  * 服務與方案
  *===========================================*/
-.service{
-    height: var(--originalScreenHeight);
+.service {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-items: flex-start;
+    justify-content: flex-start;
+    width: calc(100% - 120px);
+    max-width: 1420px;
+    margin: 220px auto 80px auto;
+    overflow: visible;
 }
-@media screen and (max-width: 991px) {}
+
+.service-item.active .c-slide {
+    grid-template-rows: 1fr;
+}
+
+/*===========================================
+ * slogan
+ *===========================================*/
+.slogan {
+    display: block;
+    width: 100%;
+    height: var(--originalScreenHeight);
+    overflow: hidden;
+}
+
+@media screen and (max-width: 991px) {
+
+    /*===========================================
+     * 服務與方案
+     *===========================================*/
+    .service {
+        display: block;
+        width: calc(100% - 60px);
+        margin: 220px auto 80px auto;
+    }
+
+}
 
 @media screen and (max-width: 767px) {}
 
@@ -35,6 +73,21 @@
     /*===========================================
      * banner
      *===========================================*/
+
+
+    /*===========================================
+     * 服務與方案
+     *===========================================*/
+    .service {
+        width: calc(100% - 40px);
+        margin: 150px auto 60px auto;
+    }
+
+
+    /*===========================================
+     * slogan
+     *===========================================*/
+    .slogan {}
 
 }
 
