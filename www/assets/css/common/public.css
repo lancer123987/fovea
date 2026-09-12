@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 :root {
-    --mainColor: #a40000;
+    --mainColor: #000;
+    --titleColor:#202020;
     --textColor: #2e2e2e;
     --bgColor: #000;
     --originalScreenHeight: 100vh;

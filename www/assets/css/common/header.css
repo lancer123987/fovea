@@ -9,6 +9,12 @@ header {
     z-index: 999;
 }
 
+header.hide {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 .navbar {
     display: flex;
     align-items: center;
@@ -16,6 +22,7 @@ header {
     justify-items: flex-start;
     justify-content: flex-start;
     width: calc(100% - 20px);
+    height: var(--headerHeight);
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 20px 0 0;
@@ -49,18 +56,44 @@ header {
     visibility: hidden;
 }
 
+/****英文標題****/
+.navbar__en {
+    display: block;
+    width: calc(50% - 50px - 50px);
+    font-size: 13px;
+    line-height: 1;
+    color: var(--titleColor);
+    font-weight: 500;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+/****中文標題****/
+.navbar__title {
+    display: block;
+    width: 100px;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--titleColor);
+    text-align: center;
+    flex: 0 0 auto;
+}
+
 /****主選單****/
 .mainMenu {
     display: flex;
     align-items: center;
     align-content: center;
-    justify-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
+    justify-items: flex-end;
+    justify-content: flex-end;
+    width: calc(50% - 20px - 50px);
+    font-size: 13px;
+    line-height: 1;
+    color: var(--titleColor);
+    font-weight: 500;
     overscroll-behavior: none;
     transition: transform .4s ease-in-out;
     overflow: hidden;
-    /* overflow-y: auto; */
     flex: 0 1 auto;
 }
 
@@ -73,9 +106,41 @@ header {
     background: var(--mainColor);
 }
 
+.mainMenu__item {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    margin: 0 0 0 40px;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.mainMenu__item:first-child {
+    margin: 0;
+}
+
+.mainMenu__item__link {
+    display: block;
+    width: 100%;
+}
+
+.mainMenu__item__link .en,
+.mainMenu__item__link .zh {
+    transition: opacity .4s ease-in-out;
+}
+
+.mainMenu__item__link .zh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    opacity: 0;
+}
+
 /****主選單切換鈕****/
 .navbt {
-    display: block;
+    display: none;
     width: 50px;
     height: 15px;
     margin: 0 0 0 20px;
@@ -100,7 +165,49 @@ header {
 /****向下滾動樣式****/
 header.active {}
 
-@media screen and (max-width: 991px) {}
+@media screen and (max-width: 991px) {
+    .navbar {
+        padding: 0 10px 0 0;
+    }
+
+/****英文標題****/
+.navbar__en {
+    width: calc(50% - 50px - 50px);
+}
+
+/****主選單****/
+.mainMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+display: block;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-items:  flex-start;
+    justify-content:  flex-start;
+    width: 100%;
+    font-size: 30px;
+overflow-y: auto;
+}
+
+.mainMenu__item {
+    width: 100%;
+    margin: 0 0 0 40px;
+    text-align: var(--textAlign);
+}
+
+.mainMenu__item__link .en{
+    display: none;
+}
+
+.mainMenu__item__link .zh {
+    opacity: 1;
+}
+    /****主選單切換鈕****/
+    .navbt {
+        display: block;
+    }
+}
 
 @media screen and (max-width: 767px) {
     .navbar__en {
@@ -108,10 +215,28 @@ header.active {}
     }
 }
 
-@media screen and (max-width: 575px) {}
+@media screen and (max-width: 575px) {
+    .navbar {
+        padding: 0;
+    }
+
+    /****主選單切換鈕****/
+    .navbt {
+        width: 30px;
+    }
+}
 
 /****非觸控螢幕****/
-@media (any-hover: hover) {}
+@media (any-hover: hover) {
+    .mainMenu__item__link:hover .en {
+        opacity: 0;
+    }
+
+    .mainMenu__item__link:hover .zh {
+        opacity: 1;
+    }
+
+}
 
 /****觸控螢幕****/
 @media (any-hover: none) {}
