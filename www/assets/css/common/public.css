@@ -5,6 +5,7 @@
     --titleColor: #202020;
     --textColor: #2e2e2e;
     --bgColor: #000;
+    --borderColor:#e5e5e5;
     --originalScreenHeight: 100vh;
     --screenHeight: 100vh;
     --headerHeight: 50px;
@@ -569,7 +570,7 @@ textarea {
      * 共用零件
      *===========================================*/
     .c-content {
-        width: calc(100% - 60px);
+        width: calc(100% - 100px);
     }
 
     /****共用banner****/
@@ -581,6 +582,10 @@ textarea {
     /*===========================================
      * 共用零件
      *===========================================*/
+    .c-content {
+        width: calc(100% - 60px);
+    }
+
     /****查無資料****/
     .c-nodata {
         padding: 80px 0;
