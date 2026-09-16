@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="assets/css/common/header.css">
 
     <!-- 當前頁面 -->
-     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <!-- CSS end -->
 </head>
 
@@ -74,7 +74,7 @@
             <!--主選單容器-->
             <div class="mainMenuBox">
                 <label class="mainMenuClose" for="mainmenuCheck"></label>
-            <!--主選單-->
+                <!--主選單-->
                 <ul class="mainMenu">
                     <li class="mainMenu__item pc-hie">
                         <a class="mainMenu__item__link j-anchor-bt" href="#top" title="首頁">
@@ -133,7 +133,7 @@
         <!-- 服務與方案 -->
         <div class="service wow j-service">
             <div id="service" class="c-anchor j-anchor"></div>
-            
+
             <!-- 標題 -->
             <p class="service-title">Services</p>
 
@@ -145,7 +145,8 @@
                         <div class="c-slide__inner">
                             <div class="service-content">
                                 <picture class="service-icon">
-                                    <img src="assets/images/index/index_service_pic01.svg" alt="核心拍攝服務" width="220" height="220" loading="lazy">
+                                    <img src="assets/images/index/index_service_pic01.svg" alt="核心拍攝服務" width="220"
+                                        height="220" loading="lazy">
                                 </picture>
                                 <div class="service-plan">
                                     <div class="service-plan__item">
@@ -170,8 +171,9 @@
                             </div>
                         </div>
                     </div>
-                    <picture class="service-icon">
-                        <img src="assets/images/index/index_service_pic01.svg" alt="核心拍攝服務" width="220" height="220" loading="lazy">
+                    <picture class="service-icon j-service-icon">
+                        <img src="assets/images/index/index_service_pic01.svg" alt="核心拍攝服務" width="220" height="220"
+                            loading="lazy">
                     </picture>
                 </div>
                 <div class="service-item j-service-item">
@@ -180,7 +182,8 @@
                         <div class="c-slide__inner">
                             <div class="service-content">
                                 <picture class="service-icon">
-                                    <img src="assets/images/index/index_service_pic02.svg" alt="長期視覺協作方案" width="220" height="220" loading="lazy">
+                                    <img src="assets/images/index/index_service_pic02.svg" alt="長期視覺協作方案" width="220"
+                                        height="220" loading="lazy">
                                 </picture>
                                 <div class="service-plan">
                                     <div class="service-plan__item">
@@ -199,8 +202,9 @@
                             </div>
                         </div>
                     </div>
-                    <picture class="service-icon">
-                        <img src="assets/images/index/index_service_pic02.svg" alt="長期視覺協作方案" width="220" height="220" loading="lazy">
+                    <picture class="service-icon j-service-icon">
+                        <img src="assets/images/index/index_service_pic02.svg" alt="長期視覺協作方案" width="220" height="220"
+                            loading="lazy">
                     </picture>
                 </div>
             </div>
@@ -208,7 +212,9 @@
 
         <!-- slogan-->
         <div class="slogan">
-            
+            <div class="slogan__inner">
+                <div></div>
+            </div>
         </div>
     </main>
 
@@ -295,10 +301,30 @@
     <!-- common -->
     <script src="assets/js/common/common.js"></script>
     <script>
-        jQuery(function() {
+        jQuery(function () {
             /* 服務項目展開收合 */
-            jQuery('.j-service').on('click', '.j-service-bt',function() {
+            jQuery('.j-service').on('click', '.j-service-bt', function () {
                 jQuery(this).closest('.j-service-item').toggleClass('active');
+            });
+
+            /* 服務項目icon位置 */
+            jQuery('.j-service').on('mousemove', '.j-service-bt', function (e) {
+                let $this = jQuery(this);
+
+                let $service = $this.data('service-parent');
+                if (!$service) {
+                    $service = $this.closest('.j-service');
+                    $this.data('service-parent', $service);
+                }
+
+                if ($this.data('rafId')) cancelAnimationFrame($this.data('rafId'));
+
+                let rafId = requestAnimationFrame(() => {
+                    $service[0].style.setProperty('--iconX', e.offsetX);
+                    $service[0].style.setProperty('--iconY', e.offsetY);
+                });
+
+                $this.data('rafId', rafId);
             });
         });
     </script>

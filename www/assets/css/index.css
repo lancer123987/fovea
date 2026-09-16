@@ -91,8 +91,8 @@ body {
     height: 40px;
     border-radius: 50%;
     background:
-        linear-gradient(to top, #202020, #202020) center/50% 2px no-repeat,
-        linear-gradient(to top, #202020, #202020) center/2px 50% no-repeat #e4e4e4;
+        linear-gradient(to top, #202020, #202020) center/50% 1px no-repeat,
+        linear-gradient(to top, #202020, #202020) center/1px 50% no-repeat #e4e4e4;
     transform-origin: center;
     transition: transform .4s ease-in-out;
     pointer-events: none;
@@ -101,8 +101,8 @@ body {
 
 .service-item.active .service-item__bt::after {
     background:
-        linear-gradient(to top, #fff, #fff) center/50% 2px no-repeat,
-        linear-gradient(to top, #fff, #fff) center/2px 50% no-repeat #090909;
+        linear-gradient(to top, #fff, #fff) center/50% 1px no-repeat,
+        linear-gradient(to top, #fff, #fff) center/1px 50% no-repeat #090909;
     transform: rotate(45deg);
 }
 
@@ -156,8 +156,16 @@ body {
 
 .service-item>.service-icon {
     position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
+    transform: translate(max(0px, calc(1px * var(--iconX, 0) - 100%)), max(-50%, calc(1px * var(--iconY, 0) - 50%)));
     pointer-events: none;
+    z-index: 10;
+}
+
+.service-item.active>.service-icon {
+    display: none;
 }
 
 .service-plan {
@@ -236,10 +244,25 @@ body {
     font-size: 14px;
 }
 
+
 /*===========================================
  * slogan
  *===========================================*/
 .slogan {
+    display: block;
+    width: 100%;
+    height: calc(var(--originalScreenHeight) * 2);
+    overflow: visible;
+}
+
+.slogan__inner {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
     display: block;
     width: 100%;
     height: var(--originalScreenHeight);
@@ -265,6 +288,10 @@ body {
     }
 
     /****服務內容列表****/
+    .service-icon {
+        margin: 0 30px 0 0;
+    }
+
     .service-item>.service-icon {
         display: none;
     }
@@ -305,6 +332,23 @@ body {
         font-size: 25px;
     }
 
+    /****服務內容列表****/
+    .service-item__bt {
+        padding: 20px 45px 20px 0;
+        font-size: 20px;
+    }
+
+    .service-item__bt::after {
+        top: calc(50% - 15px);
+        right: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .service-plan__item__title {
+        font-size: 15px;
+    }
+
 
     /*===========================================
      * slogan
@@ -315,7 +359,16 @@ body {
 
 
 /****非觸控螢幕****/
-@media (any-hover: hover) {}
+@media (any-hover: hover) {
+
+    /*===========================================
+     * 服務與方案
+     *===========================================*/
+    /****服務內容列表****/
+    .service-item:hover>.service-icon {
+        opacity: 1;
+    }
+}
 
 /****觸控螢幕****/
 @media (any-hover: none) {
