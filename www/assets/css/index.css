@@ -40,8 +40,7 @@ body {
 }
 
 .brand__title,
-.brand__sub,
-.brand__text {
+.brand__sub {
     display: block;
     width: 100%;
 }
@@ -63,12 +62,10 @@ body {
     font-weight: 300;
 }
 
-.brand__text {
+.brand .c-text {
     max-width: 570px;
     margin: 0 auto;
-    font-size: 16px;
-    line-height: 2;
-    color: var(--titleColor);
+    text-align: inherit;
 }
 
 
@@ -419,10 +416,6 @@ body {
     .brand__sub {
         margin: 0 auto 30px auto;
         font-size: 20px;
-    }
-
-    .brand__text {
-        font-size: 15px;
     }
 
 
