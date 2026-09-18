@@ -130,6 +130,15 @@
             <div id="work" class="c-anchor j-anchor"></div>
         </div>
 
+        <!-- 品牌價值 -->
+        <div class="brand wow">
+            <p class="brand__title">Imagery <span class="c-inlineBlock">Builds Brand</span> Value</p>
+            <p class="brand__sub">視覺不只是呈現，是幫品牌<span class="c-inlineBlock">更快被選擇</span></p>
+            <p class="brand__text">
+                多數影像服務是一次性的，但品牌價值不是。中央窩不做零散的視覺輸出，而是協助你建立一套可以長期使用的視覺系統。在合理預算下，我們會先思考，再拍攝。讓你的每一分投入，不只是完成專案，而是轉化為能被記住、被信任的品牌資產。
+            </p>
+        </div>
+
         <!-- 服務與方案 -->
         <div class="service wow j-service">
             <div id="service" class="c-anchor j-anchor"></div>
@@ -211,8 +220,8 @@
         </div>
 
         <!-- slogan-->
-        <div class="slogan">
-            <div class="slogan__inner">
+        <div class="slogan j-parallax">
+            <div class="slogan__inner j-parallax-sticky">
                 <div></div>
             </div>
         </div>
@@ -326,7 +335,37 @@
 
                 $this.data('rafId', rafId);
             });
+
+            /* 操作偵測 */
+            observeScroll((data) => {
+                /* 滾動視差百分比回傳 */
+                parallaxScroll();
+            });
+
+            ResizeHandler.init(() => {
+                /* 滾動視差百分比回傳 */
+                parallaxScroll();
+            });
         });
+
+        /**
+         * 滾動視差百分比回傳
+         *
+         * @access    public
+         *
+         * @return    {void}
+         */
+        function parallaxScroll() {
+            jQuery('.j-parallax').each(function () {
+                let $area = jQuery(this),
+                    progress = getParallaxPercent({
+                        childEl: $area.find('.j-parallax-sticky'),
+                        startMode: 'top'
+                    });
+
+                $area.css('--rate', progress);
+            });
+        }
     </script>
     <!-- JS end -->
 </body>
