@@ -30,9 +30,154 @@ body {
 .work {
     display: block;
     width: 100%;
-    padding: 60px 0 130px 0;
+    padding: 60px 0 0 0;
     background: var(--bgGray);
     overflow: hidden;
+}
+
+.work__inner {
+    display: block;
+    width: calc(100% - 120px);
+    max-width: 1740px;
+    margin: 0 auto;
+}
+
+.work-title {
+    display: block;
+    width: 100%;
+    margin: 0 0 50px 0;
+    font-size: 50px;
+    line-height: 1.2;
+    color: var(--mainColor);
+}
+
+.work-title.wow.animated {
+    animation-name: fadeInUp;
+}
+
+.work-list {
+    display: block;
+    width: 100%;
+    border-top: 1px solid #cdcdcd;
+    counter-reset: work;
+}
+
+.work-list__box {
+    display: block;
+    width: 100%;
+    padding: 55px 0 60px 160px;
+    background: linear-gradient(to left, #cdcdcd, #cdcdcd) bottom right/ calc(100% - 100px) 1px no-repeat;
+    counter-increment: work;
+}
+
+.work-list__box::before {
+    content: counter(work, decimal-leading-zero);
+    position: absolute;
+    top: 65px;
+    left: 0;
+    display: block;
+    width: auto;
+    max-width: 100%;
+    padding: 0 0 0 25px;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--titleColor);
+    font-weight: 500;
+    background: radial-gradient(ellipse at center, #202020 calc(70% - .5px), #20202000 calc(70% + .5px)) left center/6px 6px no-repeat;
+    transition: opacity 1s .4s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.work-list__box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100px;
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #cdcdcd;
+    pointer-events: none;
+}
+
+.work-list__box:last-child {
+    padding: 55px 0 130px 160px;
+    background: none;
+}
+
+.work-list__box.wow.animated {
+    opacity: 1;
+    visibility: visible;
+}
+
+.work-list__box.wow.animated::before {
+    opacity: 1;
+}
+
+.work-list__box__title {
+    display: block;
+    width: 100%;
+    margin: 0 0 50px 0;
+    font-size: 25px;
+    line-height: 1.2;
+    color: var(--titleColor);
+    font-weight: 300;
+}
+
+.work-list__box__title.animated {
+    animation-name: fadeIn;
+}
+
+.work-list__box__item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.work-list__box__item.wow.animated {
+    animation-name: fadeIn;
+}
+
+.work-list__box__item:last-child {
+    margin: 0;
+}
+
+.work-list__box__item__media {
+    display: block;
+    width: 100%;
+    max-width: 950px;
+    flex: 0 1 auto;
+}
+
+.work-list__box__item__content {
+    display: block;
+    width: calc(50% - 30px);
+    max-width: 540px;
+    margin: 0 0 0 50px;
+    flex: 0 0 auto;
+}
+
+.work-list__box__item__content__title {
+    display: block;
+    width: 100%;
+    margin: 0 0 25px 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--titleColor);
+}
+
+.work-list__box__item__content .c-text {
+    opacity: .8;
+}
+
+.work-list__box__item__content__bt {
+    max-width: 180px;
+    margin: 70px 0 0 0;
 }
 
 
@@ -425,8 +570,45 @@ body {
     /*===========================================
      * 作品集
      *===========================================*/
-    .work {
-        padding: 60px 0 100px 0;
+    .work__inner {
+        width: calc(100% - 40px);
+    }
+
+    .work-list__box {
+        padding: 55px 0 100px 80px;
+        background-size: calc(100% - 80px) 1px;
+    }
+
+    .work-list__box::before {
+        padding: 0 0 0 15px;
+    }
+
+    .work-list__box:last-child {
+        padding: 55px 0 100px 80px;
+    }
+
+    .work-list__box::after {
+        left: 50px;
+    }
+
+    .work-list__box__item {
+        display: block;
+        margin: 0 0 60px 0;
+    }
+
+    .work-list__box__item__media {
+        max-width: none;
+        margin: 0 auto 30px auto;
+    }
+
+    .work-list__box__item__content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .work-list__box__item__content__bt {
+        margin: 30px 0 0 0;
     }
 
 
@@ -502,6 +684,78 @@ body {
      *===========================================*/
     .work {
         padding: 30px 0 50px 0;
+    }
+
+    .work-title {
+        margin: 0 0 25px 0;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .work-list {
+        left: -20px;
+        width: calc(100% + 40px);
+        padding: 0 20px;
+    }
+
+    .work-list__box {
+        padding: 50px 0;
+        background-size: 100% 1px;
+    }
+
+    .work-list__box::before {
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin: 0 auto 25px auto;
+        padding: 0;
+        text-align: center;
+        background: none;
+    }
+
+    .work-list__box::after {
+        display: none;
+    }
+
+    .work-list__box:last-child {
+        padding: 50px 0;
+    }
+
+    .work-list__box__title {
+        margin: 0 0 25px 0;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .work-list__box__title::after {
+        content: '';
+        position: relative;
+        display: block;
+        width: 1px;
+        height: 50px;
+        margin: 25px auto 0 auto;
+        background: #cdcdcd;
+        pointer-events: none;
+    }
+
+    .work-list__box__item {
+        display: block;
+        width: 100%;
+        margin: 0 0 50px 0;
+    }
+
+    .work-list__box__item__media {
+        margin: 0 auto 20px auto;
+    }
+
+    .work-list__box__item__content__title {
+        margin: 0 0 10px 0;
+        font-size: 16px;
+    }
+
+    .work-list__box__item__content__bt {
+        max-width: none;
+        margin: 10px 0 0 0;
     }
 
 

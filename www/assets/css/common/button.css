@@ -55,9 +55,17 @@
     text-align: center;
 }
 
-/**more樣式**/
-[class^="c-bt"][class*="-more"] {
-    padding: 15.5px 20px;
+/**next樣式**/
+[class^="c-bt"][class*="-next"]::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 17px;
+    height: 11px;
+    margin: 0 0 0 10px;
+    background: url(../../images/common/icon_arrow_next_long_gray.svg) center/contain no-repeat;
+    opacity: .7;
+    flex: 0 0 auto;
 }
 
 /****processing****/
