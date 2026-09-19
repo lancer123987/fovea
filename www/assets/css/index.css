@@ -19,8 +19,80 @@ body {
  *===========================================*/
 .about {
     display: block;
-    width: 100%;
+    width: calc(100% - 120px);
+    max-width: 1740px;
+    margin: 230px auto 180px auto;
     overflow: hidden;
+}
+
+.about-main {
+    display: block;
+    width: 100%;
+    margin: 0 auto 190px auto;
+    font-size: min(90px, 12vw);
+    line-height: 1;
+    color: var(--mainColor);
+    letter-spacing: 0;
+    font-weight: 400;
+    text-align: center;
+}
+
+.about-main.wow.animated {
+    animation-name: fadeInUp;
+}
+
+.about__inner {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 140px max(0px, calc(50% - 750px)) 0 max(0px, calc(50% - 750px));
+    border-top: 1px solid #e5e5e5;
+}
+
+.about-title {
+    display: block;
+    width: 100%;
+    margin: 0 0 150px 0;
+    padding: 0 0 0 60px;
+    font-size: 13px;
+    line-height: 1.2;
+    color: var(--titleColor);
+}
+
+.about-title::before {
+    content: '';
+    position: absolute;
+    top: calc(.6em - 15px);
+    left: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(../images/common/logo.svg) center/contain no-repeat;
+}
+
+.about-title.wow.animated {
+    animation-name: fadeInUp;
+}
+
+.about-content {
+    display: block;
+    width: 50%;
+    margin: 0 0 0 auto;
+}
+
+.about-content.wow.animated {
+    animation-name: fadeIn;
+}
+
+.about-content__title {
+    display: block;
+    width: 100%;
+    margin: 0 0 55px 0;
+    font-size: 25px;
+    line-height: 1.5;
+    color: var(--titleColor);
+    font-weight: 300;
+    text-align: right;
 }
 
 
@@ -568,6 +640,30 @@ body {
 @media screen and (max-width: 991px) {
 
     /*===========================================
+     * 關於中央窩
+     *===========================================*/
+    .about {
+        width: calc(100% - 60px);
+    }
+
+    .about__inner {
+        padding: 140px 0 0 0;
+    }
+
+    .about-title {
+        display: none;
+    }
+
+    .about-content {
+        width: 100%;
+    }
+
+    .about-content__title {
+        margin: 0 0 50px 0;
+    }
+
+
+    /*===========================================
      * 作品集
      *===========================================*/
     .work__inner {
@@ -677,6 +773,30 @@ body {
     /*===========================================
      * banner
      *===========================================*/
+
+
+    /*===========================================
+     * 關於中央窩
+     *===========================================*/
+    .about {
+        width: calc(100% - 40px);
+        margin: 140px auto 110px auto;
+    }
+
+    .about-main {
+        margin: 0 auto 110px auto;
+        font-size: min(50px, 14vw);
+    }
+
+    .about__inner {
+        padding: 100px 0 0 0;
+    }
+
+    .about-content__title {
+        margin: 0 0 35px 0;
+        font-size: 20px;
+        text-align: center;
+    }
 
 
     /*===========================================
