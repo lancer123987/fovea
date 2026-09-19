@@ -23,6 +23,20 @@ jQuery(function () {
         }
     });
 
+    /* 自動撥放影片偵測 */
+    observable.init({
+        target:'.j-video',
+        onEnter: (el) => {
+            if ('1' !== el.dataset.autoplay) return;
+            if ('function' !== typeof el.play) return;
+            el.play();
+        },
+        onLeave: (el) => {
+            if ('function' !== typeof el.pause) return;
+            el.pause();
+        }
+    });
+
     /* 循環動畫效能優化 (可視偵測) */
     observeInfAnim();
 
