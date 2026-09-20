@@ -60,6 +60,11 @@ body {
     overflow: hidden;
 }
 
+html.loading,
+html.loading body {
+    overflow: hidden;
+}
+
 /****卷軸樣式****/
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
@@ -574,6 +579,114 @@ textarea {
     width: 100%;
 }
 
+/****loading*****/
+.c-loading {
+    --time: 3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: #fff;
+    transition: opacity 1s linear;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.c-loading::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - max(100vw, 100vh) / 2);
+    left: calc(50% - max(100vw, 100vh) / 2);
+    display: block;
+    width: max(100vw, 100vh);
+    height: max(100vw, 100vh);
+    background: #000;
+    transition: transform calc(var(--time) * .4) linear;
+    transform-origin: center;
+}
+
+.c-loading-content {
+    top: calc(50% - 30px);
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: transform calc(var(--time) * .2) calc(var(--time) * .4) linear;
+}
+
+.c-loading-logo {
+    display: block;
+    width: 60px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.c-loading-text {
+    display: block;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--titleColor);
+    opacity: 0;
+    transition: opacity calc(var(--time) * .2) calc(var(--time) * .6) linear;
+}
+
+.c-loading-enter {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    width: 160px;
+    max-width: 100%;
+    margin: 80px auto 0 auto;
+    padding: 20px 0;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--mainColor);
+    border-top: 1px solid #7f7f7f;
+    border-bottom: 1px solid #7f7f7f;
+    opacity: 0;
+    transition: opacity calc(var(--time) * .2) calc(var(--time) * .6) linear;
+    cursor: pointer;
+}
+
+.c-loading-enter::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 15px;
+    height: 9px;
+    margin: 0 0 0 10px;
+    background: url(../../images/common/icon_arrow_next_long_black.svg) center/contain no-repeat;
+    opacity: .5;
+    flex: 0 0 auto;
+}
+
+html.loading .c-loading {
+    opacity: 1;
+}
+
+html.ready .c-loading::before {
+    transform: scale(0);
+}
+
+html.ready .c-loading-content {
+    transform: translateY(calc(-50% + 30px));
+}
+
+html.ready .c-loading-text,
+html.ready .c-loading-enter {
+    opacity: 1;
+}
+
 @media screen and (max-width: 991px) {
 
     /*===========================================
@@ -583,7 +696,10 @@ textarea {
         width: calc(100% - 100px);
     }
 
-    /****共用banner****/
+    /****loading*****/
+    .c-loading-enter {
+        margin: 50px auto 0 auto;
+    }
 
 }
 
@@ -616,7 +732,13 @@ textarea {
         font-size: 15px;
     }
 
-    /****共用banner****/
+    /****loading*****/
+    .c-loading-enter {
+        width: 140px;
+        margin: 40px auto 0 auto;
+        padding: 15px 0;
+        font-size: 13px;
+    }
 }
 
 
@@ -628,7 +750,13 @@ textarea {
 }
 
 /****非觸控螢幕****/
-@media (any-hover: hover) {}
+@media (any-hover: hover) {
+
+    /****loading*****/
+    .c-loading-enter:hover::after {
+        animation: arrowMove 1s ease-in-out;
+    }
+}
 
 /****觸控螢幕****/
 @media (any-hover: none) {}
