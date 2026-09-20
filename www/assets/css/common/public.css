@@ -423,7 +423,7 @@ textarea {
 /****錨點****/
 .c-anchor {
     position: absolute;
-    top: calc(var(--headerHeight) - 30px);
+    top: calc(var(--headerHeight) - 40px);
     left: 0;
     display: block;
     width: 0;

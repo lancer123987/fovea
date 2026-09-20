@@ -127,8 +127,100 @@
 
     <main>
         <!-- banner -->
-        <div class="banner">
+        <div class="banner j-banner wow">
             <div id="top" class="c-anchor j-anchor"></div>
+            <!-- 背景 -->
+            <div class="c-banner-bg">
+                <div class="c-banner-bg__box">
+                    <div class="c-banner-media">
+                        <video class="j-video" data-autoplay="1" muted post="assets/images/index/index_banner_post01.png">
+                            <source src="assets/video/index/index_banner_video01.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video01.png" type="video/mp4">
+                        </video>
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic01.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic01.png" alt="中央窩" width="384" height="292"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video class="j-video" data-autoplay="1" muted post="assets/images/index/index_banner_post02.png">
+                            <source src="assets/video/index/index_banner_video02.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video02.png" type="video/mp4">
+                        </video>
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic02.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic02.png" alt="中央窩" width="606" height="404"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic03.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic03.png" alt="中央窩" width="426" height="627"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic04.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic04.png" alt="中央窩" width="400" height="600"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic05.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic05.png" alt="中央窩" width="650" height="427"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video class="j-video" data-autoplay="1" muted post="assets/images/index/index_banner_post03.png">
+                            <source src="assets/video/index/index_banner_video03.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video03.png" type="video/mp4">
+                        </video>                    
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic06.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic06.png" alt="中央窩" width="797" height="534"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic07.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic07.png" alt="中央窩" width="600" height="400"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video class="j-video" data-autoplay="1" muted post="assets/images/index/index_banner_post04.png">
+                            <source src="assets/video/index/index_banner_video04.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video04.png" type="video/mp4">
+                        </video>                      
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic08.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic08.png" alt="中央窩" width="400" height="600"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic09.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic09.png" alt="中央窩" width="1020" height="680"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic10.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic10.png" alt="中央窩" width="734" height="471"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video class="j-video" data-autoplay="1" muted post="assets/images/index/index_banner_post05.png">
+                            <source src="assets/video/index/index_banner_video05.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video05.png" type="video/mp4">
+                        </video>                          
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文案 -->
+            <div class="banner-content">
+                <p class="banner-content__title">Fovea</p>
+                <p class="banner-content__text">視覺不只是呈現，是幫品牌更快被選擇</p>
+                <a class="banner-content__link j-anchor-bt" href="#work" title="作品集">Works</a>
+            </div>
         </div>
 
         <!-- 關於中央窩 -->
@@ -431,8 +523,8 @@
     <!-- common -->
     <script src="assets/js/common/common.js"></script>
     <script>
-        let isFirst = sessionStorage.getItem('is_first') === null ? '1' : '0';   
-        isFirst = +isFirst; 
+        let isFirst = sessionStorage.getItem('is_first') === null ? '1' : '0';
+        isFirst = +isFirst;
         jQuery(function () {
             /* loading */
             let $html = jQuery('html');
@@ -447,6 +539,36 @@
                 $html.removeClass('loading');
                 sessionStorage.setItem('is_first', 0);
             });
+
+            /* banner滑鼠位置偵測 */
+            if (!touchSupport) {
+                let isBannerVisible = false;
+                observable.init({
+                    target: '.j-banner',
+                    onEnter: (el) => {
+                        isBannerVisible = true;
+                    },
+                    onLeave: (el) => {
+                        isBannerVisible = false;
+                    }
+                });
+
+                window.addEventListener('pointermove', function (e) {
+                    if (991 >= window.innerWidth) return;
+                    if (!isBannerVisible) return;
+                    let $banner = jQuery('.j-banner')[0],
+                        rect = $banner.getBoundingClientRect(),
+                        centerX = rect.width / 2,
+                        centerY = rect.height / 2,
+                        x = e.clientX - rect.left - centerX,
+                        y = e.clientY - rect.top - centerY;
+
+                    requestAnimationFrame(() => {
+                        $banner.style.setProperty('--x', x * 1);
+                        $banner.style.setProperty('--y', y * 2.1);
+                    });
+                });
+            }
 
             /* 服務項目展開收合 */
             jQuery('.j-service').on('click', '.j-service-bt', function () {
