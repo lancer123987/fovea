@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="loading" lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="robots" content="all">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>中央窩</title>
+    <meta name="author" content="中央窩">
+    <meta name="copyright" content="Copyright © 2026 Fovea Visual. All Rights Reserved.">
+    <meta name="description" content="">
+    <meta name="distribution" content="Taiwan">
+    <meta name="geo.region" content="tw">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="中央窩">
+    <meta property="og:site_name" content="中央窩">
+    <meta property="og:image" content="ogimage.png">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+
+    <!-- 預載項目 -->
+    <link rel="preload" href="assets/images/common/ajax-loader.gif" as="image">
+    <!-- 預載項目 end -->
+
+    <!-- favicon頁面小圖 -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="192x192" href="apple-touch-icon.jpg">
+    <!-- favicon頁面小圖 end -->
+
+    <!-- CSS -->
+    <!-- font -->
+    <link rel="stylesheet" href="assets/css/font/Montserrat.css">
+    <link rel="stylesheet" href="assets/css/font/NotoSansTC_split.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="assets/css/common/animate.css">
+    <!-- slick -->
+    <link rel="stylesheet" href="assets/css/plugin/slick.css">
+    <link rel="stylesheet" href="assets/css/plugin/slick-theme.css">
+    <!-- 共用屬性 -->
+    <link rel="stylesheet" href="assets/css/common/public.css">
+    <link rel="stylesheet" href="assets/css/common/crumb.css">
+    <link rel="stylesheet" href="assets/css/common/button.css">
+    <link rel="stylesheet" href="assets/css/common/title.css">
+    <link rel="stylesheet" href="assets/css/common/lightbox.css">
+    <link rel="stylesheet" href="assets/css/common/header.css">
+
+    <!-- 當前頁面 -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- CSS end -->
+</head>
+
+<body>
+    <!-- 頁首 -->
+    <header>
+        <nav class="navbar">
+            <input id="mainmenuCheck" class="c-toggleBox" type="checkbox" aria-hidden="true">
+            <!--logo-->
+            <a class="logo" href="./" title="中央窩">
+                <img src="assets/images/common/logo.svg" alt="中央窩" width="30" height="30" fetchpriority="high">
+            </a>
+
+            <!-- 英文標題 -->
+            <p class="navbar__en">Fovea Visual</p>
+
+            <!-- 中文標題 -->
+            <h1 class="navbar__title">中央窩視覺</h1>
+
+            <!--主選單背景-->
+            <label class="mainMenuBg" for="mainmenuCheck"></label>
+
+            <!--主選單容器-->
+            <div class="mainMenuBox">
+                <label class="mainMenuClose" for="mainmenuCheck"></label>
+                <!--主選單-->
+                <ul class="mainMenu">
+                    <li class="mainMenu__item pc-hie">
+                        <a class="mainMenu__item__link j-anchor-bt" href="#top" title="首頁">
+                            <span class="en">Home</span>
+                            <span class="zh">首頁</span>
+                        </a>
+                    </li>
+                    <li class="mainMenu__item">
+                        <a class="mainMenu__item__link j-anchor-bt" href="#about" title="關於中央窩">
+                            <span class="en">About Fovea</span>
+                            <span class="zh">關於中央窩</span>
+                        </a>
+                    </li>
+                    <li class="mainMenu__item">
+                        <a class="mainMenu__item__link j-anchor-bt" href="#work" title="作品集">
+                            <span class="en">Works</span>
+                            <span class="zh">作品集</span>
+                        </a>
+                    </li>
+                    <li class="mainMenu__item">
+                        <a class="mainMenu__item__link j-anchor-bt" href="#service" title="服務與方案">
+                            <span class="en">Services</span>
+                            <span class="zh">服務與方案</span>
+                        </a>
+                    </li>
+                    <li class="mainMenu__item">
+                        <a class="mainMenu__item__link j-anchor-bt" href="#contact" title="聯絡我們">
+                            <span class="en">Contact</span>
+                            <span class="zh">聯絡我們</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--主選單切換鈕-->
+            <label class="navbt" for="mainmenuCheck" aria-labelledby="main menu toggle"></label>
+        </nav>
+    </header>
+
+    <!-- loading -->
+    <div class="c-loading j-loading">
+        <div class="c-loading-content">
+            <picture class="c-loading-logo">
+                <img src="assets/images/common/logo.svg" alt="中央窩" width="60" height="60" loading="lazy">
+            </picture>
+            <p class="c-loading-text">Fovea Visual</p>
+            <button class="c-loading-enter j-loading-bt" type="button">Enter</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- banner -->
+        <div class="banner j-banner wow">
+            <div id="top" class="c-anchor j-anchor"></div>
+            <!-- 背景 -->
+            <div class="c-banner-bg">
+                <div class="c-banner-bg__box">
+                    <div class="c-banner-media">
+                        <video data-autoplay="1" poster="assets/images/index/index_banner_post01.png" muted loop playsinline>
+                            <source src="assets/video/index/index_banner_video01.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video01.png" type="video/mp4">
+                        </video>
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic01.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic01.png" alt="中央窩" width="384" height="292"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video data-autoplay="1" poster="assets/images/index/index_banner_post02.png" muted loop playsinline>
+                            <source src="assets/video/index/index_banner_video02.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video02.png" type="video/mp4">
+                        </video>
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic02.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic02.png" alt="中央窩" width="606" height="404"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic03.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic03.png" alt="中央窩" width="426" height="627"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic04.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic04.png" alt="中央窩" width="400" height="600"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic05.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic05.png" alt="中央窩" width="650" height="427"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video data-autoplay="1" poster="assets/images/index/index_banner_post03.png" muted loop playsinline>
+                            <source src="assets/video/index/index_banner_video03.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video03.png" type="video/mp4">
+                        </video>                    
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic06.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic06.png" alt="中央窩" width="797" height="534"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic07.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic07.png" alt="中央窩" width="600" height="400"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video data-autoplay="1" poster="assets/images/index/index_banner_post04.png" muted loop playsinline>
+                            <source src="assets/video/index/index_banner_video04.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video04.png" type="video/mp4">
+                        </video>                      
+                    </div>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic08.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic08.png" alt="中央窩" width="400" height="600"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic09.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic09.png" alt="中央窩" width="1020" height="680"
+                            loading="lazy">
+                    </picture>
+                    <picture class="c-banner-media">
+                        <source srcset="assets/images/index/index_banner_pic10.webp" type="image/webp">
+                        <img src="assets/images/index/index_banner_pic10.png" alt="中央窩" width="734" height="471"
+                            loading="lazy">
+                    </picture>
+                    <div class="c-banner-media">
+                        <video data-autoplay="1" poster="assets/images/index/index_banner_post05.png" muted loop playsinline>
+                            <source src="assets/video/index/index_banner_video05.webm" type="video/webm">
+                            <source src="assets/video/index/index_banner_video05.png" type="video/mp4">
+                        </video>                          
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文案 -->
+            <div class="banner-content">
+                <p class="banner-content__title">Fovea</p>
+                <p class="banner-content__text">視覺不只是呈現，是幫品牌更快被選擇</p>
+                <a class="banner-content__link j-anchor-bt" href="#work" title="作品集">Works</a>
+            </div>
+        </div>
+
+        <!-- 關於中央窩 -->
+        <div class="about">
+            <p class="about-main wow">Fovea Visual</p>
+            <div class="about__inner">
+                <div id="about" class="c-anchor j-anchor"></div>
+                <p class="about-title wow">Imagery that gets chosen</p>
+                <div class="about-content wow">
+                    <p class="about-content__title">視覺不只是呈現，是幫品牌<span class="c-inlineBlock">更快被選擇</span></p>
+                    <p class="c-text">在視覺過度飽和的時代，好看只是基礎，被理解才是關鍵。中央窩專注於 空間品牌 與 知識型品牌
+                        ，我們不只是按下快門，而是用影像幫品牌把話說清楚。我們從觀看者的角度出發，整理品牌想傳達的訊息，將抽象的專業轉化為一致、清楚且有說服力的視覺語言。讓觀者從看見到理解，最後因為「信任」而做出選擇。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 作品集 -->
+        <div class="work">
+            <div id="work" class="c-anchor j-anchor"></div>
+            <div class="work__inner">
+                <p class="work-title wow">Work</p>
+                <div class="work-list">
+                    <div class="work-list__box wow">
+                        <h2 class="work-list__box__title wow">讓空間被感受到，而不是只是被看到</h2>
+                        <div class="work-list__box__item wow">
+                            <picture class="work-list__box__item__media">
+                                <source srcset="assets/images/index/index_work_pic01_01.webp" type="image/webp">
+                                <img src="assets/images/index/index_work_pic01_01.png" alt="空間品牌平面攝影" width="990"
+                                    height="625" loading="lazy">
+                            </picture>
+                            <div class="work-list__box__item__content">
+                                <h3 class="work-list__box__item__content__title">空間品牌平面攝影</h3>
+                                <p class="c-text">
+                                    不只是拍空間，而是定義第一印象。
+                                    <br>透過材質、光線與比例的精準呈現，讓觀者在螢幕前就能感受到專業與舒適感。
+                                </p>
+                                <a class="c-bt-next work-list__box__item__content__bt" href="#" title="查看更多作品"
+                                    target="_blank" rel="noreferrer noopener"><span>查看更多作品</span></a>
+                            </div>
+                        </div>
+                        <div class="work-list__box__item wow">
+                            <video class="work-list__box__item__media" poster="assets/images/index/index_work_pic01_02.png" controls playsinline>
+                                <source src="assets/video/index/index_work_video01_02.webm" type="video/webm">
+                                <source src="assets/video/index/index_work_video01_02.png" type="video/mp4">
+                            </video>                            
+                            <div class="work-list__box__item__content">
+                                <h3 class="work-list__box__item__content__title">空間品牌動態影像</h3>
+                                <p class="c-text">
+                                    在進入空間前，就先完成一場體驗。
+                                    <br>我們用鏡頭與節奏，引導觀者理解動線與氛圍，讓畫面成為推動實際到訪的關鍵。
+                                </p>
+                                <a class="c-bt-next work-list__box__item__content__bt" href="#" title="查看更多作品"
+                                    target="_blank" rel="noreferrer noopener"><span>查看更多作品</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-list__box wow">
+                        <h2 class="work-list__box__title wow">讓專業變成「被相信、也願意付費」的內容</h2>
+                        <div class="work-list__box__item wow">
+                            <picture class="work-list__box__item__media">
+                                <source srcset="assets/images/index/index_work_pic02_01.webp" type="image/webp">
+                                <img src="assets/images/index/index_work_pic02_01.png" alt="線上課程視覺開發" width="990"
+                                    height="625" loading="lazy">
+                            </picture>
+                            <div class="work-list__box__item__content">
+                                <h3 class="work-list__box__item__content__title">線上課程視覺開發</h3>
+                                <p class="c-text">
+                                    我們不只拍課程，而是幫你把內容變成產品。
+                                    <br>從課程價值整理、內容呈現到影像設計，讓觀眾更容易理解、建立信任，進而提升轉換效果。
+                                </p>
+                                <a class="c-bt-next work-list__box__item__content__bt" href="#" title="查看更多作品"
+                                    target="_blank" rel="noreferrer noopener"><span>查看更多作品</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-list__box wow">
+                        <h2 class="work-list__box__title wow">讓品牌持續被記住，而不是只被看見一次</h2>
+                        <div class="work-list__box__item wow">
+                            <video class="work-list__box__item__media" poster="assets/images/index/index_work_pic03_01.png" controls playsinline>
+                                <source src="assets/video/index/index_work_video03_01.webm" type="video/webm">
+                                <source src="assets/video/index/index_work_video03_01.png" type="video/mp4">
+                            </video>
+                            <div class="work-list__box__item__content">
+                                <h3 class="work-list__box__item__content__title">短影音品牌協作</h3>
+                                <p class="c-text">
+                                    穩定曝光，比一次爆紅更有價值。
+                                    <br>我們協助品牌持續產出內容，讓信任在日常中慢慢累積。
+                                </p>
+                                <a class="c-bt-next work-list__box__item__content__bt" href="#" title="查看更多作品"
+                                    target="_blank" rel="noreferrer noopener"><span>查看更多作品</span></a>
+                            </div>
+                        </div>
+                        <div class="work-list__box__item wow">
+                            <picture class="work-list__box__item__media">
+                                <source srcset="assets/images/index/index_work_pic03_02.webp" type="image/webp">
+                                <img src="assets/images/index/index_work_pic03_02.png" alt="品牌視覺策略整合" width="990"
+                                    height="625" loading="lazy">
+                            </picture>
+                            <div class="work-list__box__item__content">
+                                <h3 class="work-list__box__item__content__title">品牌視覺策略整合</h3>
+                                <p class="c-text">
+                                    讓品牌在每個地方，看起來都像同一個人。
+                                    <br>從攝影到設計，我們建立一致的視覺邏輯，避免品牌訊息分散，讓每一次曝光都更有效。
+                                </p>
+                                <a class="c-bt-next work-list__box__item__content__bt" href="#" title="查看更多作品"
+                                    target="_blank" rel="noreferrer noopener"><span>查看更多作品</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 品牌價值 -->
+        <div class="brand wow">
+            <p class="brand__title">Imagery <span class="c-inlineBlock">Builds Brand</span> Value</p>
+            <p class="brand__sub">視覺不只是呈現，是幫品牌<span class="c-inlineBlock">更快被選擇</span></p>
+            <p class="c-text">
+                多數影像服務是一次性的，但品牌價值不是。中央窩不做零散的視覺輸出，而是協助你建立一套可以長期使用的視覺系統。在合理預算下，我們會先思考，再拍攝。讓你的每一分投入，不只是完成專案，而是轉化為能被記住、被信任的品牌資產。
+            </p>
+        </div>
+
+        <!-- 服務與方案 -->
+        <div class="service wow j-service">
+            <div id="service" class="c-anchor j-anchor"></div>
+
+            <!-- 標題 -->
+            <p class="service-title">Services</p>
+
+            <!-- 服務內容列表 -->
+            <div class="service-box">
+                <div class="service-item j-service-item">
+                    <h2 class="service-item__bt j-service-bt">核心拍攝服務</h2>
+                    <div class="c-slide">
+                        <div class="c-slide__inner">
+                            <div class="service-content">
+                                <picture class="service-icon">
+                                    <img src="assets/images/index/index_service_pic01.svg" alt="核心拍攝服務" width="220"
+                                        height="220" loading="lazy">
+                                </picture>
+                                <div class="service-plan">
+                                    <div class="service-plan__item">
+                                        <h3 class="service-plan__item__title">空間品牌平面攝影</h3>
+                                        <p class="service-plan__item__price">
+                                            <span class="dollar">NT$</span> 20,000 <span class="unit">/ 件 起</span>
+                                        </p>
+                                    </div>
+                                    <div class="service-plan__item">
+                                        <h3 class="service-plan__item__title">空間品牌動態影像</h3>
+                                        <p class="service-plan__item__price">
+                                            <span class="dollar">NT$</span> 30,000 <span class="unit">/ 件 起</span>
+                                        </p>
+                                    </div>
+                                    <div class="service-plan__item">
+                                        <h3 class="service-plan__item__title">線上課程視覺開發方案</h3>
+                                        <p class="service-plan__item__price">
+                                            <span class="dollar">NT$</span> 60,000 <span class="unit">/ 件 起</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <picture class="service-icon j-service-icon">
+                        <img src="assets/images/index/index_service_pic01.svg" alt="核心拍攝服務" width="220" height="220"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="service-item j-service-item">
+                    <h2 class="service-item__bt j-service-bt">長期視覺協作方案</h2>
+                    <div class="c-slide">
+                        <div class="c-slide__inner">
+                            <div class="service-content">
+                                <picture class="service-icon">
+                                    <img src="assets/images/index/index_service_pic02.svg" alt="長期視覺協作方案" width="220"
+                                        height="220" loading="lazy">
+                                </picture>
+                                <div class="service-plan">
+                                    <div class="service-plan__item">
+                                        <h3 class="service-plan__item__title">短影音品牌協作</h3>
+                                        <p class="service-plan__item__price">
+                                            <span class="dollar">NT$</span> 30,000 <span class="unit">/ 月 起</span>
+                                        </p>
+                                    </div>
+                                    <div class="service-plan__item">
+                                        <h3 class="service-plan__item__title">品牌視覺策略整合</h3>
+                                        <p class="service-plan__item__price">
+                                            <span class="dollar">NT$</span> 30,000 <span class="unit">/ 月 起</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <picture class="service-icon j-service-icon">
+                        <img src="assets/images/index/index_service_pic02.svg" alt="長期視覺協作方案" width="220" height="220"
+                            loading="lazy">
+                    </picture>
+                </div>
+            </div>
+        </div>
+
+        <!-- slogan-->
+        <div class="slogan j-parallax">
+            <div class="slogan__inner j-parallax-sticky">
+                <div class="slogan-content">
+                    <picture class="slogan-content__logo">
+                        <img src="assets/images/common/logo_gray.svg" alt="中央窩" width="100" height="100" loading="lazy">
+                    </picture>
+                    <p class="slogan-content__title">Let’s Create More Possibilities</p>
+                    <p class="slogan-content__text">讓我們一起創造更多可能性</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div id="contact" class="c-anchor j-anchor"></div>
+        <div class="footer__inner wow">
+            <div class="footer-box">
+                <p class="footer-touch">Get in Touch</p>
+                <div class="footer-contact">
+                    <a class="footer-contact__link" href="mailto:foveapg@gmail.com" title="來信至中央窩" target="_blank"
+                        rel="noreferrer noopener">foveapg@gmail.com</a>
+                    <a class="footer-contact__link" href="tel:0921104130" title="來電至中央窩" target="_blank"
+                        rel="noreferrer noopener">0921-104-130</a>
+                </div>
+                <div class="footer-logo">
+                    <picture class="footer-logo__main">
+                        <img src="assets/images/common/logo.svg" alt="中央窩" width="60" height="60" loading="lazy">
+                    </picture>
+                    <p class="footer-logo__text">
+                        Fovea Visual
+                        <br>中央窩視覺
+                    </p>
+                </div>
+            </div>
+            <div class="footer-box">
+                <button class="footer-scrollToTop j-goToTop" title="返回頂部" type="button"></button>
+                <div class="footer-address">
+                    <div class="footer-address__item">
+                        <p class="footer-address__item__title">桃園辦公室</p>
+                        <p class="footer-address__item__text">桃園市桃園區水汴二路29號1樓</p>
+                    </div>
+                    <div class="footer-address__item">
+                        <p class="footer-address__item__title">台北辦公室</p>
+                        <p class="footer-address__item__text">台北市中山區松江路64巷10-2號</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-sns">
+                        <a class="footer-sns__item" href="https://www.facebook.com/foveapg" title="中央窩 Facebook"
+                            target="_blank" rel="noreferrer noopener">Facebook</a>
+                        <a class="footer-sns__item" href="https://line.me/R/ti/p/%40uxl1512q" title="中央窩官方 Line"
+                            target="_blank" rel="noreferrer noopener">LINE@</a>
+                    </div>
+                    <p class="footer-copright">
+                        Copyright © 2026 Fovea Visual.
+                        <br>All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--dialog-->
+    <!-- <div class="c-lightbox j-lightbox" data-lightbox="dialog">
+        <div class="c-lightbox__inner">
+            <div class="c-lightbox__inner__message j-lightbox-dialog">
+                <button class="c-close j-lightbox-close" title="關閉視窗" type="button"></button>
+                <div class="c-lightbox__inner__message__box">
+                    <div class="c-lightbox__inner__message__box__icon j-dialog-icon"></div>
+                    <p class="c-lightbox__inner__message__box__sub j-dialog-sub"></p>
+                    <p class="c-lightbox__inner__message__box__title j-dialog-title"></p>
+                    <p class="c-lightbox__inner__message__box__text j-dialog-content"></p>
+                    <div class="c-lightbox__inner__message__box__btGroup">
+                        <button class="c-bt-gray c-lightbox__inner__message__box__btGroup__bt j-dialog-callback2"
+                            type="button"><span>取消</span></button>
+                        <button class="c-bt-yellow c-lightbox__inner__message__box__btGroup__bt j-dialog-callback1"
+                            type="button"><span>確定</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/common/footer.css">
+
+    <!-- JS -->
+    <!-- lib -->
+    <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/lib/core.js"></script>
+    <!-- plugin -->
+    <!-- <script src="assets/js/plugin/slick1.9.0.min.js"></script>
+    <script src="assets/js/plugin/slick-plugin.js"></script> -->
+    <!-- common -->
+    <script src="assets/js/common/common.js"></script>
+    <script>
+        let isFirst = sessionStorage.getItem('is_first') === null ? '1' : '0';
+        isFirst = +isFirst;
+        jQuery(function () {
+            /* loading */
+            let $html = jQuery('html');
+            if (isFirst) {
+                $html.addClass('ready');
+            } else {
+                $html.removeClass('loading');
+                jQuery('.j-loading').remove();
+            }
+
+            $html.on('click', '.j-loading-bt', function () {
+                $html.removeClass('loading');
+                sessionStorage.setItem('is_first', 0);
+            });
+
+            /* banner滑鼠位置偵測 */
+            if (!touchSupport) {
+                let isBannerVisible = false;
+                observable.init({
+                    target: '.j-banner',
+                    onEnter: (el) => {
+                        isBannerVisible = true;
+                    },
+                    onLeave: (el) => {
+                        isBannerVisible = false;
+                    }
+                });
+
+                window.addEventListener('pointermove', function (e) {
+                    if (991 >= window.innerWidth) return;
+                    if (!isBannerVisible) return;
+                    let $banner = jQuery('.j-banner')[0],
+                        rect = $banner.getBoundingClientRect(),
+                        centerX = rect.width / 2,
+                        centerY = rect.height / 2,
+                        x = e.clientX - rect.left - centerX,
+                        y = e.clientY - rect.top - centerY;
+
+                    requestAnimationFrame(() => {
+                        $banner.style.setProperty('--x', x * 1);
+                        $banner.style.setProperty('--y', y * 2.1);
+                    });
+                });
+            }
+
+            /* 服務項目展開收合 */
+            jQuery('.j-service').on('click', '.j-service-bt', function () {
+                jQuery(this).closest('.j-service-item').toggleClass('active');
+            });
+
+            /* 服務項目icon位置 */
+            jQuery('.j-service').on('mousemove', '.j-service-bt', function (e) {
+                let $this = jQuery(this);
+
+                let $service = $this.data('service-parent');
+                if (!$service) {
+                    $service = $this.closest('.j-service');
+                    $this.data('service-parent', $service);
+                }
+
+                if ($this.data('rafId')) cancelAnimationFrame($this.data('rafId'));
+
+                let rafId = requestAnimationFrame(() => {
+                    $service[0].style.setProperty('--iconX', e.offsetX);
+                    $service[0].style.setProperty('--iconY', e.offsetY);
+                });
+
+                $this.data('rafId', rafId);
+            });
+
+            /* 操作偵測 */
+            observeScroll((data) => {
+                /* 滾動視差百分比回傳 */
+                parallaxScroll();
+            });
+
+            ResizeHandler.init(() => {
+                /* 滾動視差百分比回傳 */
+                parallaxScroll();
+            });
+        });
+
+        /**
+         * 滾動視差百分比回傳
+         *
+         * @access    public
+         *
+         * @return    {void}
+         */
+        function parallaxScroll() {
+            jQuery('.j-parallax').each(function () {
+                let $area = jQuery(this),
+                    progress = getParallaxPercent({
+                        childEl: $area.find('.j-parallax-sticky'),
+                        startMode: 'top'
+                    });
+
+                $area.css('--rate', progress);
+            });
+        }
+    </script>
+    <!-- JS end -->
+</body>
+
+</html>
