@@ -595,6 +595,7 @@ textarea {
     opacity: 0;
     background: #fff;
     transition: opacity 1s linear;
+    pointer-events: none;
     overflow: hidden;
     z-index: 1000;
 }
@@ -672,6 +673,7 @@ textarea {
 
 html.loading .c-loading {
     opacity: 1;
+    pointer-events: auto;
 }
 
 html.ready .c-loading::before {
