@@ -25,7 +25,7 @@ jQuery(function () {
 
     /* 自動撥放影片偵測 */
     observable.init({
-        target:'.j-video',
+        target:'video',
         onEnter: (el) => {
             if ('1' !== el.dataset.autoplay) return;
             if ('function' !== typeof el.play) return;
