@@ -3,7 +3,7 @@
 :root {
     --mainColor: #000;
     --titleColor: #202020;
-    --textColor: #2e2e2e;
+    --textColor: rgba(46, 46, 46, .8);
     --bgColor: #000;
     --bgGray: #e4e4e4;
     --borderColor: #e5e5e5;
@@ -277,6 +277,10 @@ textarea {
     display: inline-block;
 }
 
+.hide {
+    display: none;
+}
+
 /*===========================================
  * 共用列表
  *===========================================*/
@@ -416,14 +420,14 @@ textarea {
     width: 100%;
     font-size: 16px;
     line-height: 2;
-    color: var(--titleColor);
+    color: var(--textColor);
     text-align: var(--textAlign);
 }
 
 /****錨點****/
 .c-anchor {
     position: absolute;
-    top: calc(var(--headerHeight) - 40px);
+    top: calc(var(--headerHeight) * -1 - 40px);
     left: 0;
     display: block;
     width: 0;

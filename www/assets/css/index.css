@@ -15,7 +15,7 @@ body {
     justify-content: center;
     width: 100%;
     height: var(--screenHeight);
-    overflow: visible;
+    overflow: hidden;
 }
 
 .banner.wow {
@@ -174,7 +174,6 @@ body {
     font-size: 20px;
     line-height: 1.5;
     color: var(--titleColor);
-    font-weight: 300;
     transition: opacity 1s .8s ease-in-out, transform 1s .8s ease-in-out;
 }
 
@@ -300,7 +299,6 @@ body {
     font-size: 25px;
     line-height: 1.5;
     color: var(--titleColor);
-    font-weight: 300;
     text-align: right;
 }
 
@@ -403,7 +401,6 @@ body {
     font-size: 25px;
     line-height: 1.2;
     color: var(--titleColor);
-    font-weight: 300;
 }
 
 .work-list__box__title.animated {
@@ -452,10 +449,6 @@ body {
     color: var(--titleColor);
 }
 
-.work-list__box__item__content .c-text {
-    opacity: .8;
-}
-
 .work-list__box__item__content__bt {
     max-width: 180px;
     margin: 70px 0 0 0;
@@ -497,7 +490,6 @@ body {
     font-size: 23px;
     line-height: 1.5;
     color: var(--titleColor);
-    font-weight: 300;
 }
 
 .brand .c-text {
@@ -688,7 +680,6 @@ body {
     font-size: 18px;
     line-height: 1.5;
     color: var(--titleColor);
-    font-weight: 300;
 }
 
 .service-plan__item__title::before {
@@ -1255,6 +1246,10 @@ body {
         right: 10px;
         width: 30px;
         height: 30px;
+    }
+
+    .service-plan__item {
+        margin: 0 0 20px 0;
     }
 
     .service-plan__item__title {

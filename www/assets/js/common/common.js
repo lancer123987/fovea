@@ -14,6 +14,19 @@ jQuery(function () {
         });
     })();
 
+    /* Lenis 初始化 */
+    if (!isIOS()) {
+        /*Lenis smooth*/
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        };
+
+        requestAnimationFrame(raf);
+    }
+
     /* 進場動畫效果初始化 */
     observable.init({
         target: '.wow',
@@ -25,7 +38,7 @@ jQuery(function () {
 
     /* 自動撥放影片偵測 */
     observable.init({
-        target:'video',
+        target: 'video',
         onEnter: (el) => {
             if ('1' !== el.dataset.autoplay) return;
             if ('function' !== typeof el.play) return;
@@ -46,6 +59,9 @@ jQuery(function () {
     observeScroll(() => {
         /* header 滾動樣式偵測 */
         headerScroll();
+
+        /* 滾動視差百分比回傳 */
+        parallaxScroll();
 
         /* 錨點對應位置樣式 */
         anchorPosition();
@@ -207,6 +223,9 @@ jQuery(function () {
     ResizeHandler.init(() => {
         /* 錨點對應位置樣式 */
         anchorPosition();
+
+        /* 滾動視差百分比回傳 */
+        parallaxScroll();
     });
 });
 
@@ -448,5 +467,25 @@ function makeAjaxPromise(url, data) {
                 reject(new Error('AJAX 錯誤：沒有取得有效資料'));
             }
         });
+    });
+}
+
+
+/**
+ * 滾動視差百分比回傳
+ *
+ * @access    public
+ *
+ * @return    {void}
+ */
+function parallaxScroll() {
+    jQuery('.j-parallax').each(function () {
+        let $area = jQuery(this),
+            progress = getParallaxPercent({
+                childEl: $area.find('.j-parallax-sticky'),
+                startMode: 'top'
+            });
+
+        $area.css('--rate', progress);
     });
 }
