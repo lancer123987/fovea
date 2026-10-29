@@ -184,7 +184,7 @@ footer::after {
     display: block;
     width: 100%;
     margin: 0 0 5px 0;
-    color: rgba(255, 255, 255, .3);
+    color: rgba(255, 255, 255, .4);
     font-weight: 300;
 }
 

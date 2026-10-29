@@ -185,6 +185,8 @@ header.hide {
 
 .mainMenu__item__link .en,
 .mainMenu__item__link .zh {
+    display: block;
+    width: 100%;
     transition: opacity .4s ease-in-out;
 }
 
@@ -192,9 +194,15 @@ header.hide {
     position: absolute;
     top: 0;
     left: 0;
-    display: block;
-    width: 100%;
     opacity: 0;
+}
+
+.mainMenu__item__link.zh-long .en {
+    position: absolute;
+}
+
+.mainMenu__item__link.zh-long .zh {
+    position: relative;
 }
 
 /****主選單切換鈕****/
